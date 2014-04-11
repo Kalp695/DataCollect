@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9B2DF67E-C837-4EB8-B4AB-3DC2698CD3DA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DataCollect</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E3E43605-97F0-43B0-879B-7DEC0BBF9BEE</key>
+		<string>https://github.com/helloliucc/DataCollect.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DataCollect.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E3E43605-97F0-43B0-879B-7DEC0BBF9BEE</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/helloliucc/DataCollect.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E3E43605-97F0-43B0-879B-7DEC0BBF9BEE</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3E43605-97F0-43B0-879B-7DEC0BBF9BEE</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DataCollect</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,4 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1 $(inherited) ARC_ENABLED
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/KissXML" "${PODS_ROOT}/Headers/TBXML" "${PODS_ROOT}/Headers/iOS-KML-Framework" "$(SDKROOT)/usr/include/libxml2"
+OTHER_LDFLAGS = -ObjC -lxml2 -lz -framework CoreGraphics -framework MobileCoreServices -framework Security -framework SystemConfiguration -framework UIKit
+PODS_ROOT = ${SRCROOT}/Pods
