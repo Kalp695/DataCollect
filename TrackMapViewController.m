@@ -215,7 +215,7 @@
         [alertView show];
         
     } else {
-        self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"Stop Logging", nil);
+        self.navigationItem.leftBarButtonItem.title = NSLocalizedString(@"停止记录", nil);
         
         self.locationManager = [CLLocationManager new];
         self.locationManager.delegate = self;

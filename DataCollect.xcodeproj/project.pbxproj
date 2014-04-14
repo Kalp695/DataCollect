@@ -131,6 +131,7 @@
 		7B9AA43C187FB99000D6F72D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA435187FB99000D6F72D /* zip.c */; };
 		7B9AA43D187FB99000D6F72D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA438187FB99000D6F72D /* SSZipArchive.m */; };
 		7BB71C8E18F930670092ED94 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB71C8D18F930670092ED94 /* MAMapKit.framework */; };
+		7BB71CE718FBB1280092ED94 /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB71CE618FBB1280092ED94 /* camera-icon.png */; };
 		7BB7534F1884DC740037BC63 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7534E1884DC730037BC63 /* Util.m */; };
 		7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB753521884DDFA0037BC63 /* LoginViewController.m */; };
 		7BB75357188624650037BC63 /* done0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB75355188624650037BC63 /* done0.png */; };
@@ -396,6 +397,7 @@
 		7B9AA438187FB99000D6F72D /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		7B9AA4C0187FC30A00D6F72D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7BB71C8D18F930670092ED94 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
+		7BB71CE618FBB1280092ED94 /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
 		7BB7534D1884DC730037BC63 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		7BB7534E1884DC730037BC63 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		7BB753511884DDFA0037BC63 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -984,6 +986,7 @@
 		7BB75354188624190037BC63 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7BB71CE618FBB1280092ED94 /* camera-icon.png */,
 				7B506AA418F7B2BB008E2B0E /* images */,
 				7B5068F518F58240008E2B0E /* add.png */,
 				7B5068EF18F54130008E2B0E /* app_icon.png */,
@@ -1244,6 +1247,7 @@
 				7B506AC418F7B2BB008E2B0E /* RecordingSignal006@2x.png in Resources */,
 				7B506AC618F7B2BB008E2B0E /* RecordingSignal007@2x.png in Resources */,
 				7B506AC118F7B2BB008E2B0E /* RecordingSignal005.png in Resources */,
+				7BB71CE718FBB1280092ED94 /* camera-icon.png in Resources */,
 				7B5F1FD1185F29BF0070B040 /* InfoPlist.strings in Resources */,
 				7BDD9C1618D91DCD00E6E93B /* SearchView.xib in Resources */,
 				7B506AC518F7B2BB008E2B0E /* RecordingSignal007.png in Resources */,

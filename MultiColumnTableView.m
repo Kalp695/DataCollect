@@ -633,13 +633,14 @@ typedef NS_ENUM(NSUInteger, MultiColumnSortType) {
         textField.indexPath=indexPath;
         
         [textField sizeToFit];
-        textField.placeholder=@"place holder";
+        textField.placeholder=@"点击输入";
         if (![[[self.holderArray objectAtIndex:indexPath.row]objectAtIndex:i]isEqualToString:@"-1"]) {
             textField.text=[[self.holderArray objectAtIndex:indexPath.row]objectAtIndex:i];
         }
         textField.center=CGPointMake(cellW/2.0f, cellH/2.0f);
         CGRect frame=textField.frame;
         frame.size.width+=150;
+        frame.origin.x-=30;
         textField.frame=frame;
         textField.delegate=self;
         textField.userInteractionEnabled=YES;
@@ -934,7 +935,7 @@ typedef NS_ENUM(NSUInteger, MultiColumnSortType) {
     CGRect frame4=cell.frame;
     frame4.size.height=230;
     frame4.size.width=170;
-    frame4.origin.x=textField.idenHorizon*170+35;
+    frame4.origin.x=textField.idenHorizon*170;
     frame4.origin.y +=54;
     [selectTabelView setFrame:frame4];
     [selectTabelView reloadData];

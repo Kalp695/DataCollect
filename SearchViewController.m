@@ -301,7 +301,7 @@
         
         //    NSLog(@"%@",self.downLoadedArray);
 //        //经测试，在由目录数生成的array中，第一个元素为空，故暂时删掉第一个元素先，不知真机是否存在该问题
-        [self.downLoadedArray removeObjectAtIndex:0];
+//        [self.downLoadedArray removeObjectAtIndex:0];
         [self.collectionView reloadData];
 
     }
@@ -359,6 +359,14 @@
         cell.authorLabel.text=[cellInfoArray objectAtIndex:1];
         cell.startTimeLabel.text=[cellInfoArray objectAtIndex:2];
         cell.endTimeLabel.text=[cellInfoArray objectAtIndex:3];
+        
+        NSString *dirName=[[self.downLoadedArray objectAtIndex:indexPath.row]lastObject];
+        NSString *dirPath=[self.listPath stringByAppendingPathComponent:dirName];
+        NSString *imagePath=[dirPath stringByAppendingPathComponent:@"ThumBnail.png"];
+        cell.imageView.image=[UIImage imageWithContentsOfFile:imagePath];
+
+        
+        
     }
     return cell;
 
