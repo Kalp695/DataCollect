@@ -70,7 +70,7 @@
 }
 -(void)loadView{
     [super loadView];
-    self.title=@"FileList";
+//    self.title=@"FileList";
     self.isEditState=NO;
     self.bufferCellArray = [@[] mutableCopy];
     self.delIndexPaths=[@[] mutableCopy];

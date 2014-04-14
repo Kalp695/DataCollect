@@ -115,7 +115,7 @@
 
 #pragma mark MKMapViewDelegate
 
-- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
 {
     return [kmlParser viewForOverlay:overlay];
 }

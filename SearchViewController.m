@@ -301,7 +301,7 @@
         
         //    NSLog(@"%@",self.downLoadedArray);
 //        //经测试，在由目录数生成的array中，第一个元素为空，故暂时删掉第一个元素先，不知真机是否存在该问题
-//        [self.downLoadedArray removeObjectAtIndex:0];
+        [self.downLoadedArray removeObjectAtIndex:0];
         [self.collectionView reloadData];
 
     }

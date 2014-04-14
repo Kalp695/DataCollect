@@ -172,6 +172,7 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="nameLabel" destination="dBM-4h-dpS" id="VSq-dV-lOp"/>
                         <outlet property="passWordField" destination="B4S-Sc-dtX" id="KxO-Mv-vhG"/>
                         <outlet property="userNameField" destination="pYH-5h-GkH" id="fCg-WK-xiB"/>
                         <segue destination="0HG-WA-eeO" kind="modal" identifier="ShowColFromLogin" id="kln-RX-EFl"/>

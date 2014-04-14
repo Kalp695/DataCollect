@@ -36,11 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self checkReachability];
     UserEntity *user=[Util getCurrentUserInfo];
     user.isLogin=YES;
     user.userName=self.userNameField.text;
 	// Do any additional setup after loading the view.
-    [self checkReachability];
     
     
 }
@@ -111,7 +111,7 @@
 }
 - (IBAction)registerClicked:(id)sender {
     //弹出uiWebView
-     self.registerWeb=[[UIWebView alloc]initWithFrame:CGRectMake(1024, 0, 900, 748)];
+     self.registerWeb=[[UIWebView alloc]initWithFrame:CGRectMake(1024, 20, 900, 748)];
     NSURL *htmlURL=[NSURL URLWithString:@"http://159.226.15.218:50080/sjyfi/reg.jsp"];
     NSURLRequest *request=[[NSURLRequest alloc] initWithURL:htmlURL];
     
@@ -136,6 +136,7 @@
         [UIView animateWithDuration:0.7 animations:^{
             CGRect frame=self.registerWeb.frame;
             frame.origin.x +=700;
+            [self.registerWeb setFrame:frame];
         } completion:^(BOOL finished) {
             nil;
         }];
@@ -147,6 +148,7 @@
     Reachability *r=[Reachability reachabilityWithHostName:@"www.baidu.com"];
     switch ([r currentReachabilityStatus]) {
         case NotReachable:
+            self.nameLabel.text=@"记录人";
             [self toastNoNet];
             break;
         case ReachableViaWiFi:
@@ -158,7 +160,7 @@
 }
 
 -(void)toastNoNet{
-    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"您当前没有网络连接,密码可以为空,请填写用户名后继续" delegate:self cancelButtonTitle:@"植物" otherButtonTitles:@"动物!", nil];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"您当前没有网络连接,密码可以为空,请填写记录人后继续" delegate:self cancelButtonTitle:@"植物" otherButtonTitles:@"动物", nil];
     [alert show];
 }
 

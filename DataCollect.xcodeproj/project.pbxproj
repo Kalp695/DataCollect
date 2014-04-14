@@ -53,7 +53,6 @@
 		7B506AC618F7B2BB008E2B0E /* RecordingSignal007@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B506AB418F7B2BB008E2B0E /* RecordingSignal007@2x.png */; };
 		7B506AC718F7B2BB008E2B0E /* RecordingSignal008.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B506AB518F7B2BB008E2B0E /* RecordingSignal008.png */; };
 		7B506AC818F7B2BB008E2B0E /* RecordingSignal008@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B506AB618F7B2BB008E2B0E /* RecordingSignal008@2x.png */; };
-		7B506ACA18F7C437008E2B0E /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B506AC918F7C437008E2B0E /* MAMapKit.framework */; };
 		7B506ACC18F7C458008E2B0E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B506ACB18F7C458008E2B0E /* QuartzCore.framework */; };
 		7B506ACE18F7C466008E2B0E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B506ACD18F7C466008E2B0E /* SystemConfiguration.framework */; };
 		7B506AD018F7C46F008E2B0E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B506ACF18F7C46F008E2B0E /* CoreTelephony.framework */; };
@@ -131,6 +130,7 @@
 		7B9AA43B187FB99000D6F72D /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA433187FB99000D6F72D /* unzip.c */; };
 		7B9AA43C187FB99000D6F72D /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA435187FB99000D6F72D /* zip.c */; };
 		7B9AA43D187FB99000D6F72D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA438187FB99000D6F72D /* SSZipArchive.m */; };
+		7BB71C8E18F930670092ED94 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB71C8D18F930670092ED94 /* MAMapKit.framework */; };
 		7BB7534F1884DC740037BC63 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7534E1884DC730037BC63 /* Util.m */; };
 		7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB753521884DDFA0037BC63 /* LoginViewController.m */; };
 		7BB75357188624650037BC63 /* done0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB75355188624650037BC63 /* done0.png */; };
@@ -257,7 +257,6 @@
 		7B506AB418F7B2BB008E2B0E /* RecordingSignal007@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal007@2x.png"; sourceTree = "<group>"; };
 		7B506AB518F7B2BB008E2B0E /* RecordingSignal008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordingSignal008.png; sourceTree = "<group>"; };
 		7B506AB618F7B2BB008E2B0E /* RecordingSignal008@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RecordingSignal008@2x.png"; sourceTree = "<group>"; };
-		7B506AC918F7C437008E2B0E /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = ../AMap_iOS_API_Lib_V2.2.0/3D/MAMapKit.framework; sourceTree = "<group>"; };
 		7B506ACB18F7C458008E2B0E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7B506ACD18F7C466008E2B0E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		7B506ACF18F7C46F008E2B0E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
@@ -396,6 +395,7 @@
 		7B9AA437187FB99000D6F72D /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
 		7B9AA438187FB99000D6F72D /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		7B9AA4C0187FC30A00D6F72D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7BB71C8D18F930670092ED94 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		7BB7534D1884DC730037BC63 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		7BB7534E1884DC730037BC63 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		7BB753511884DDFA0037BC63 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -488,10 +488,10 @@
 			files = (
 				7B506AD418F7C484008E2B0E /* libstdc++.6.0.9.dylib in Frameworks */,
 				7B506AD218F7C479008E2B0E /* OpenGLES.framework in Frameworks */,
+				7BB71C8E18F930670092ED94 /* MAMapKit.framework in Frameworks */,
 				7B506AD018F7C46F008E2B0E /* CoreTelephony.framework in Frameworks */,
 				7B506ACE18F7C466008E2B0E /* SystemConfiguration.framework in Frameworks */,
 				7B506ACC18F7C458008E2B0E /* QuartzCore.framework in Frameworks */,
-				7B506ACA18F7C437008E2B0E /* MAMapKit.framework in Frameworks */,
 				7BF2A98618B2017C008F643F /* MapKit.framework in Frameworks */,
 				7BF2A94018B1E66B008F643F /* CoreData.framework in Frameworks */,
 				7B9AA41A187FB76300D6F72D /* libz.dylib in Frameworks */,
@@ -718,6 +718,7 @@
 		7B5F1FC5185F29BF0070B040 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BB71C8D18F930670092ED94 /* MAMapKit.framework */,
 				7B506AD518F7C4B3008E2B0E /* APIKey.h */,
 				7B506AD618F7C4B3008E2B0E /* AMap.bundle */,
 				7B506AD318F7C484008E2B0E /* libstdc++.6.0.9.dylib */,
@@ -725,7 +726,6 @@
 				7B506ACF18F7C46F008E2B0E /* CoreTelephony.framework */,
 				7B506ACD18F7C466008E2B0E /* SystemConfiguration.framework */,
 				7B506ACB18F7C458008E2B0E /* QuartzCore.framework */,
-				7B506AC918F7C437008E2B0E /* MAMapKit.framework */,
 				7BF2A98518B2017C008F643F /* MapKit.framework */,
 				7BF2A93F18B1E66B008F643F /* CoreData.framework */,
 				7BB7535D1888D05E0037BC63 /* CoreLocation.framework */,
@@ -1543,6 +1543,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liucc/Downloads/AMap_iOS_API_Lib_V2.2.0/3D,
+					"/Users/liucc/Desktop/DataCollect-master",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DataCollect/DataCollect-Prefix.pch";
@@ -1568,6 +1569,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/liucc/Downloads/AMap_iOS_API_Lib_V2.2.0/3D,
+					"/Users/liucc/Desktop/DataCollect-master",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DataCollect/DataCollect-Prefix.pch";

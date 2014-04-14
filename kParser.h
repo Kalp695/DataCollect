@@ -29,6 +29,6 @@
 @property (nonatomic, readonly) NSArray *points;
 
 - (MKAnnotationView *)viewForAnnotation:(id <MKAnnotation>)point;
-- (MKOverlayView *)viewForOverlay:(id <MKOverlay>)overlay;
+- (MKOverlayRenderer *)viewForOverlay:(id <MKOverlay>)overlay;
 
 @end
