@@ -28,7 +28,7 @@
 #define kCellID @"collectionCell"
 
 
-@interface FileColViewController () <CustomNavgationDelegate,SearchViewDelegate>
+@interface FileColViewController () <CustomNavgationDelegate>
 
 @property(nonatomic,strong)NSMutableArray *containerArray;
 //用于存放轨迹的array以及用于缓存的bufferarray
@@ -108,11 +108,6 @@
 
         self.uploadFlagDic=[[NSMutableDictionary alloc]initWithContentsOfFile:filePath];
     }
-//    NSLog(@"****%@",[Util getCurrentUserInfo].userName);
-    
-    
-//    [self initSearchView];
-    
     [self addSearchBtnToNav];
 }
 
@@ -121,12 +116,7 @@
     self.navigationItem.rightBarButtonItem=rightBarButtonItem;
     
 }
--(void)initSearchView{
-    SearchView *searchView=[[SearchView alloc]initWithFrame:CGRectMake(-200, 44, 350, 710)];
-    searchView.isShow=NO;
-    searchView.delegate=self;
-    [self.view addSubview:searchView];
-}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -135,6 +125,12 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    //searchBtn 和offlineBtn的隐藏
+    if (self.segmentalBtn.selectedSegmentIndex==1) {
+        self.searchBtn.hidden=NO;
+        self.offlineBtn.hidden=NO;
+    }
+
     [self hideToolBar];
     for (int i=0;  i<self.collectionView.indexPathsForSelectedItems.count; i++) {
         [self.collectionView deselectItemAtIndexPath:[self.collectionView.indexPathsForSelectedItems objectAtIndex:i] animated:YES];
@@ -392,7 +388,6 @@
     [self.navigationController.navigationBar addSubview:self.offlineBtn];
     self.offlineBtn.hidden=YES;
     [self.offlineBtn addTarget:self action:@selector(switchToOffline) forControlEvents:UIControlEventTouchUpInside];
-    
 }
 -(void)searchKMZ{
     /*TODO List
@@ -404,13 +399,21 @@
 }
 
 -(void)switchBtnVisiblity{
-    if (self.searchBtn.hidden==YES) {
-        self.searchBtn.hidden=NO;
-        self.offlineBtn.hidden=NO;
-    }else{
+    if (self.segmentalBtn.selectedSegmentIndex==0) {
         self.searchBtn.hidden=YES;
         self.offlineBtn.hidden=YES;
+    }else if(self.segmentalBtn.selectedSegmentIndex==1){
+        self.searchBtn.hidden=NO;
+        self.offlineBtn.hidden=NO;
+
     }
+//    if (self.searchBtn.hidden==YES) {
+//        self.searchBtn.hidden=NO;
+//        self.offlineBtn.hidden=NO;
+//    }else{
+//        self.searchBtn.hidden=YES;
+//        self.offlineBtn.hidden=YES;
+//    }
 }
 
 
@@ -445,13 +448,6 @@
         return cell;
         
     }
-    
-    
-    
-    
-    
-    
-    
     
     //正常现实
     if (indexPath.row==0) {
@@ -590,39 +586,6 @@
     
 }
 
-#pragma mark -SearchViewDelegate
--(void)showListByAuthor:(NSString *)author{
-    self.gridType=GridTypeForSearch;
-    NSError *error;
-
-    //todo :经测试，author不能含空格
-    NSString *prefix=@"http://159.226.15.215:8081/samples/kmz/selectbyauthor.jsp?author=";
-    NSString *urlString=[prefix stringByAppendingString:author];
-    NSString *encodedURLString=(NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)urlString, NULL, NULL, kCFStringEncodingUTF8));
-    NSString *results=[NSString stringWithContentsOfURL:[NSURL URLWithString:encodedURLString] encoding:NSUTF8StringEncoding error:&error];
-    
-    self.searchResults=[[results componentsSeparatedByString:@";"]mutableCopy];
-    
-    [self.collectionView reloadData];
-}
-
--(void)showListByKeyplace:(NSString *)place{
-    self.gridType=GridTypeForSearch;
-
-    
-}
-
--(void)showListByName:(NSString *)name{
-    self.gridType=GridTypeForSearch;
-
-    
-}
-
--(void)showSearchMapByRect{
-    self.gridType=GridTypeForSearch;
-
-    
-}
 
 
 @end

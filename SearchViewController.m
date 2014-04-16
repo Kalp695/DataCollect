@@ -68,7 +68,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     CustomNavigationController *navCon=(CustomNavigationController *)self.navigationController;
-    navCon.searchBtn.hidden=NO;
+//    navCon.searchBtn.hidden=NO;
     _toolBar.hidden=YES;
     self.segement.hidden=YES;
 
