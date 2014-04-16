@@ -106,8 +106,14 @@
     }
 }
 - (IBAction)saveClicked:(id)sender {
-    [self saveDataToPlist];
-    [self performSegueWithIdentifier:@"ShowVtpFromVsb" sender:self.dirTitle];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self saveDataToPlist];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self performSegueWithIdentifier:@"ShowVtpFromVsb" sender:self.dirTitle];
+
+        });
+    });
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     VtpViewController *vtp=segue.destinationViewController;

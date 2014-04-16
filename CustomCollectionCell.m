@@ -8,6 +8,8 @@
 
 #import "CustomCollectionCell.h"
 #import "CustomCellBackground.h"
+#import <CoreText/CoreText.h>
+
 
 @implementation CustomCollectionCell
 
@@ -28,6 +30,7 @@
     // Drawing code
 }
 */
+
 
 -(id)initWithCoder:(NSCoder *)aDecoder{
     self=[super initWithCoder:aDecoder];

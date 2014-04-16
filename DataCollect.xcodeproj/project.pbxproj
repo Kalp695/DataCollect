@@ -132,6 +132,8 @@
 		7B9AA43D187FB99000D6F72D /* SSZipArchive.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9AA438187FB99000D6F72D /* SSZipArchive.m */; };
 		7BB71C8E18F930670092ED94 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB71C8D18F930670092ED94 /* MAMapKit.framework */; };
 		7BB71CE718FBB1280092ED94 /* camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB71CE618FBB1280092ED94 /* camera-icon.png */; };
+		7BB71CEB18FE66DB0092ED94 /* snapShotOfMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB71CEA18FE66DB0092ED94 /* snapShotOfMap.png */; };
+		7BB71CEF18FE6C6C0092ED94 /* YLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CEE18FE6C6C0092ED94 /* YLLabel.m */; };
 		7BB7534F1884DC740037BC63 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7534E1884DC730037BC63 /* Util.m */; };
 		7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB753521884DDFA0037BC63 /* LoginViewController.m */; };
 		7BB75357188624650037BC63 /* done0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB75355188624650037BC63 /* done0.png */; };
@@ -398,6 +400,9 @@
 		7B9AA4C0187FC30A00D6F72D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7BB71C8D18F930670092ED94 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		7BB71CE618FBB1280092ED94 /* camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-icon.png"; sourceTree = "<group>"; };
+		7BB71CEA18FE66DB0092ED94 /* snapShotOfMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snapShotOfMap.png; sourceTree = "<group>"; };
+		7BB71CED18FE6C6C0092ED94 /* YLLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YLLabel.h; sourceTree = "<group>"; };
+		7BB71CEE18FE6C6C0092ED94 /* YLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLabel.m; sourceTree = "<group>"; };
 		7BB7534D1884DC730037BC63 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		7BB7534E1884DC730037BC63 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		7BB753511884DDFA0037BC63 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -974,6 +979,15 @@
 			path = minizip;
 			sourceTree = "<group>";
 		};
+		7BB71CEC18FE6C6C0092ED94 /* YLLabel */ = {
+			isa = PBXGroup;
+			children = (
+				7BB71CED18FE6C6C0092ED94 /* YLLabel.h */,
+				7BB71CEE18FE6C6C0092ED94 /* YLLabel.m */,
+			);
+			path = YLLabel;
+			sourceTree = "<group>";
+		};
 		7BB753501884DDE20037BC63 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -986,6 +1000,7 @@
 		7BB75354188624190037BC63 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7BB71CEA18FE66DB0092ED94 /* snapShotOfMap.png */,
 				7BB71CE618FBB1280092ED94 /* camera-icon.png */,
 				7B506AA418F7B2BB008E2B0E /* images */,
 				7B5068F518F58240008E2B0E /* add.png */,
@@ -1063,6 +1078,7 @@
 		7BBBBE1B18695C9E0079D6BD /* tool */ = {
 			isa = PBXGroup;
 			children = (
+				7BB71CEC18FE6C6C0092ED94 /* YLLabel */,
 				7B59EB4C188377BC0054EE6F /* customNav */,
 				7B957510187FC78B000948CD /* asi */,
 				7B9574FF187FC514000948CD /* SearchCore */,
@@ -1232,6 +1248,7 @@
 				7B506AC718F7B2BB008E2B0E /* RecordingSignal008.png in Resources */,
 				7B506AC318F7B2BB008E2B0E /* RecordingSignal006.png in Resources */,
 				7BBBBE57186A7B1B0079D6BD /* logo.png in Resources */,
+				7BB71CEB18FE66DB0092ED94 /* snapShotOfMap.png in Resources */,
 				7BDD9C7718DBD5C400E6E93B /* swipe_right.png in Resources */,
 				7B506ABE18F7B2BB008E2B0E /* RecordingSignal003@2x.png in Resources */,
 				7B9AA3E818753C7700D6F72D /* t_sjyfi_vtp.xml in Resources */,
@@ -1385,6 +1402,7 @@
 				7B17033118C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m in Sources */,
 				7BBBBE391869643D0079D6BD /* FileColViewController.m in Sources */,
 				7B95754E187FC7A1000948CD /* ASIDownloadCache.m in Sources */,
+				7BB71CEF18FE6C6C0092ED94 /* YLLabel.m in Sources */,
 				7BB7535C1887B5290037BC63 /* UIImage+CS_Extention.m in Sources */,
 				7B506ADF18F7C515008E2B0E /* OfflineViewController.m in Sources */,
 				7B506A3818F6E511008E2B0E /* SearchViewController.m in Sources */,

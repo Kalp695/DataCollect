@@ -15,6 +15,7 @@
 #import "AibViewController.h"
 #import "SearchView.h"
 #import "hpple/TFHpple.h"
+#import "KMZCell.h"
 
 
 #import "CoreDataStore.h"
@@ -420,11 +421,6 @@
 #pragma mark-UICollectionViewDelegate&DataSource
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if (self.gridType == GridTypeForSearch) {
-        return self.searchResults.count;
-    }
-    
-    
     if (self.gridType==GridTypeForTrack) {
         return self.tracks.count;
     }else{
@@ -434,20 +430,6 @@
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     CustomCollectionCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
     cell.backgroundColor=[UIColor whiteColor];
-    //搜索tracks返回结果后的显示内容
-    if (self.gridType==GridTypeForSearch) {
-        //cell.image=截图
-        int i=indexPath.row;
-        NSString *cellInfo=[self.searchResults objectAtIndex:i];
-        NSArray *infoArrayBySeparate=[cellInfo componentsSeparatedByString:@","];
-//        NSString *name=[infoArrayBySeparate objectAtIndex:1];
-//        cell.label.text=name;
-        NSLog(@"info:%@",[infoArrayBySeparate objectAtIndex:0]);
-//        NSLog(@"the count %d",infoArrayBySeparate.count);
-        
-        return cell;
-        
-    }
     
     //正常现实
     if (indexPath.row==0) {
@@ -455,8 +437,6 @@
         cell.label.text=[NSString stringWithFormat:@"{%ld}",(long)indexPath.row];
         cell.uploadFlag.hidden=YES;
     }else{
-        
-        
         if (self.gridType==GridTypeForTrack) {
             int i =indexPath.row;
             Track *track = [self.tracks objectAtIndex:i];
@@ -465,7 +445,8 @@
             formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
             NSString *text = [formatter stringFromDate:track.created];
             
-            cell.label.text = text;
+            cell.label.text=text;
+            cell.image.image=[UIImage imageNamed:@"snapShotOfMap.png"];
 
         }else{
         

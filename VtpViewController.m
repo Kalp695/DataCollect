@@ -224,7 +224,7 @@
     
     UIImage *resultImg=[UIImage imageWithCGImage:CGImageCreateWithImageInRect(screenshot.CGImage, CGRectMake(self.navigationController.navigationBar.frame.size.height+20, self.view.frame.origin.y+55, 748, 1024))];
     
-    NSData *screenshotPNG = UIImagePNGRepresentation([resultImg imageRotatedByDegrees:90]);
+    NSData *screenshotPNG = UIImagePNGRepresentation([resultImg imageRotatedByDegrees:-90]);
         NSError *error = nil;
     [screenshotPNG writeToFile:[self.path stringByAppendingPathComponent:@"screenshot.png"] options:NSAtomicWrite error:&error];
 

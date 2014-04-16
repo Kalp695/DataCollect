@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YLLabel.h"
 
 @interface CustomCollectionCell : UICollectionViewCell
 
@@ -17,6 +18,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *uploadFlag;
 
 
-
+-(void)atmoicLabelSize;
 
 @end

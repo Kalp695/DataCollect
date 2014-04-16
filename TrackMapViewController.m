@@ -23,6 +23,8 @@
 #import "WidgetView.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import "UIImage+CS_Extention.h"
+
 @interface TrackMapViewController ()
 @property(nonatomic,strong)UIDocumentInteractionController *interactionController;
 @property(nonatomic,strong)CLLocationManager *locationManager;
@@ -87,6 +89,7 @@
     }else{
         [self showLog];
         self.mapView.showsUserLocation=NO;
+        [self createScreenShot];
 
     }
 }
@@ -242,8 +245,49 @@
         }
     }
     [self.mapView setVisibleMapRect:zoomRect animated:NO];
+    
+    
+ 
+    
+}
+-(void)createScreenShot{
+    //生成截图
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentPath=[paths firstObject];
+    NSString *listPath=[documentPath stringByAppendingPathComponent:@"trackList"];
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setTimeStyle:NSDateFormatterFullStyle];
+    formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+    NSString *title = [formatter stringFromDate:self.track.created];
+    
+    NSString *dateDirPath=[listPath stringByAppendingPathComponent:title];
+    
+    
+    NSString *screenShotPath=[dateDirPath stringByAppendingPathComponent:@"ThumBnail.png"];
+    NSFileManager *fileMan=[NSFileManager defaultManager];
+    if (![fileMan fileExistsAtPath:screenShotPath]) {
+        MKMapSnapshotOptions *options = [[MKMapSnapshotOptions alloc]init];
+        options.region = self.mapView.region;
+        options.mapType = MKMapTypeStandard;
+        options.showsBuildings = NO;
+        options.showsPointsOfInterest = NO;
+        options.size = CGSizeMake(1000, 500);
+        
+        MKMapSnapshotter *snapshotter = [[MKMapSnapshotter alloc]initWithOptions:options];
+        [snapshotter startWithQueue:dispatch_get_main_queue() completionHandler:^(MKMapSnapshot *snapshot, NSError *error) {
+            if( error ) {
+                NSLog( @"An error occurred: %@", error );
+            } else {
+                [UIImagePNGRepresentation( snapshot.image ) writeToFile:screenShotPath atomically:YES];
+            }
+        }];
+
+    }
 }
 
+-(void)testSnap{
+}
 
 -(void)createDetailXml{
     DDXMLElement *ele_root=[DDXMLElement elementWithName:@"trackdetail"];
