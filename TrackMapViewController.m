@@ -24,6 +24,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "UIImage+CS_Extention.h"
+#import "MKPointAnnotation+Detail.h"
+#import "CustomAnn.h"
 
 @interface TrackMapViewController ()
 @property(nonatomic,strong)UIDocumentInteractionController *interactionController;
@@ -38,6 +40,7 @@
 
 @property(nonatomic,strong)NSString *beginTime;
 @property(nonatomic,strong)NSString *endTime;
+
 
 -(void)startLogging;
 -(void)showLog;
@@ -236,6 +239,7 @@
     MKMapRect zoomRect = MKMapRectNull;
     for (TrackPoint *trackPoint in self.track.trackpoints) {
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(trackPoint.latitude.floatValue, trackPoint.longitude.floatValue);
+        
         MKMapPoint annotationPoint = MKMapPointForCoordinate(coordinate);
         MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0);
         if (MKMapRectIsNull(zoomRect)) {
@@ -243,6 +247,23 @@
         } else {
             zoomRect = MKMapRectUnion(zoomRect, pointRect);
         }
+        
+        if (trackPoint.script) {
+            CustomAnn *ann=[[CustomAnn alloc]init];
+            ann.coordinate=coordinate;
+           [ann setTitle:@"wow"];
+            [ann setSubtitle:@"test"];
+            NSString *imgPath=[self.dirPath stringByAppendingPathComponent:trackPoint.imagepath];
+//            imgPath=[imgPath stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+//            imgPath=[imgPath stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+            [ann setImgPath:imgPath];
+
+            [self.mapView addAnnotation:ann];
+            
+
+        }
+        
+        
     }
     [self.mapView setVisibleMapRect:zoomRect animated:NO];
     
@@ -286,8 +307,6 @@
     }
 }
 
--(void)testSnap{
-}
 
 -(void)createDetailXml{
     DDXMLElement *ele_root=[DDXMLElement elementWithName:@"trackdetail"];
@@ -522,6 +541,35 @@
     
     return overlayView;
 }
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    MKPinAnnotationView *pinView=nil;
+    static NSString *defaultPinID=@"trackPoint";
+    pinView=(MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+    CustomAnn *ann=annotation;
+    if ((pinView==nil)&& (ann.title!=nil)) {
+        pinView=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:defaultPinID];
+        
+    }
+    pinView.pinColor=MKPinAnnotationColorPurple;
+    pinView.canShowCallout=YES;
+    pinView.animatesDrop=YES;
+//    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 32)];
+//    label.text=[ann.title stringByAppendingString:@"wow"];
+    
+//    pinView.leftCalloutAccessoryView=label;
+//    pinView.leftCalloutAccessoryView=[[UIImageView alloc]initWithImage:[UIImage imageWithContentsOfFile:ann.imgPath]];
+//    pinView.leftCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+    imageView.image=[UIImage imageWithContentsOfFile:ann.imgPath];
+    pinView.leftCalloutAccessoryView=imageView;
+    
+    
+    return pinView;
+}
+
+
+
+
 @end
 
 #pragma mark -
@@ -530,13 +578,13 @@
 - (NSString *)kmlFilePath
 {
     
+//    
+//    NSDateFormatter *formatter = [NSDateFormatter new];
+//    [formatter setTimeStyle:NSDateFormatterFullStyle];
+//    formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
+//    NSString *dateString = [formatter stringFromDate:self.track.created];
     
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    [formatter setTimeStyle:NSDateFormatterFullStyle];
-    formatter.dateFormat = @"yyyy-MM-dd hh:mm:ss";
-    NSString *dateString = [formatter stringFromDate:self.track.created];
-    
-    NSString *fileName = [NSString stringWithFormat:@"log_%@.kml", dateString];
+    NSString *fileName = [NSString stringWithFormat:@"RouteRecord.kml"];
     return [self.dirPath stringByAppendingPathComponent:fileName];
 }
 

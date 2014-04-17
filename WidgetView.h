@@ -45,5 +45,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *picView;
 @property (strong, nonatomic) IBOutlet UIView *videoView;
+@property (strong, nonatomic) IBOutlet UITextView *descripView;
 
 @end

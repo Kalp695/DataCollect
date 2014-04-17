@@ -1,18 +1,19 @@
 //
-//  MKPointAnnotation+AdditionalInfo.h
+//  MKPointAnnotation+Detail.h
 //  DataCollect
 //
-//  Created by liucc on 3/6/14.
+//  Created by liucc on 4/17/14.
 //  Copyright (c) 2014 liucc. All rights reserved.
 //
 
 #import <MapKit/MapKit.h>
 
-@interface MKPointAnnotation (AdditionalInfo)
+@interface MKPointAnnotation (Detail)
 
-
-@property(nonatomic,strong)NSString *imagePath;
 @property(nonatomic,strong)NSString *videoPath;
 @property(nonatomic,strong)NSString *audioPath;
+@property(nonatomic,strong)NSString *imgPath;
+
+
 
 @end

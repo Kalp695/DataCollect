@@ -206,7 +206,7 @@
                 _listPath=[self.documnetPath stringByAppendingPathComponent:@"animalList"];
                 break;
             case GridTypeForTrack:
-                _listPath=[self.documnetPath stringByAppendingString:@"trakList"];
+                _listPath=[self.documnetPath stringByAppendingPathComponent:@"trakList"];
             default:
                 break;
         }
@@ -554,11 +554,18 @@
 //            int i =indexPath.row+1;
             Track *track = [self.tracks objectAtIndex:indexPath.row];
             
+            CustomCollectionCell *cell=(CustomCollectionCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+            
             TrackMapViewController *viewController = (TrackMapViewController *)segue.destinationViewController;
             viewController.track = track;
+//            _listPath=[self.documnetPath stringByAppendingString:@"trakList"];
+            NSString *list=[self.documnetPath stringByAppendingPathComponent:@"trackList"];
+
+            viewController.dirPath=[list stringByAppendingPathComponent:cell.label.text] ;
+            
         }
     }
-
+    
     if ([segue.identifier isEqualToString:@"ShowOfflineMap"]) {
         OfflineViewController *offVC=segue.destinationViewController;
         offVC.mapView=[[MAMapView alloc]initWithFrame:self.view.bounds];

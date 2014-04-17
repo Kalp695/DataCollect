@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3F1DC8EDE5BF42F0B413B615 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A033FD77BA47B0A45FDE72 /* libPods.a */; };
-		7B17033118C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B17033018C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m */; };
 		7B1B4EE418B1E54F00B13723 /* CGContext+InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B4EC018B1E54F00B13723 /* CGContext+InnerBand.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B1B4EE518B1E54F00B13723 /* NSArray+InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B4EC218B1E54F00B13723 /* NSArray+InnerBand.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B1B4EE618B1E54F00B13723 /* NSDate+InnerBand.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B1B4EC418B1E54F00B13723 /* NSDate+InnerBand.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -135,6 +134,8 @@
 		7BB71CEB18FE66DB0092ED94 /* snapShotOfMap.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB71CEA18FE66DB0092ED94 /* snapShotOfMap.png */; };
 		7BB71CEF18FE6C6C0092ED94 /* YLLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CEE18FE6C6C0092ED94 /* YLLabel.m */; };
 		7BB71CF218FF6EE80092ED94 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF118FF6EE80092ED94 /* MBProgressHUD.m */; };
+		7BB71CF518FFA4620092ED94 /* MKPointAnnotation+Detail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */; };
+		7BB71CF818FFAF290092ED94 /* CustomAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF718FFAF290092ED94 /* CustomAnn.m */; };
 		7BB7534F1884DC740037BC63 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7534E1884DC730037BC63 /* Util.m */; };
 		7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB753521884DDFA0037BC63 /* LoginViewController.m */; };
 		7BB75357188624650037BC63 /* done0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB75355188624650037BC63 /* done0.png */; };
@@ -192,8 +193,6 @@
 
 /* Begin PBXFileReference section */
 		31903B8BCB19402E93455B03 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		7B17032F18C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPointAnnotation+AdditionalInfo.h"; sourceTree = "<group>"; };
-		7B17033018C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPointAnnotation+AdditionalInfo.m"; sourceTree = "<group>"; };
 		7B1B4EBF18B1E54F00B13723 /* CGContext+InnerBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGContext+InnerBand.h"; sourceTree = "<group>"; };
 		7B1B4EC018B1E54F00B13723 /* CGContext+InnerBand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGContext+InnerBand.m"; sourceTree = "<group>"; };
 		7B1B4EC118B1E54F00B13723 /* NSArray+InnerBand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+InnerBand.h"; sourceTree = "<group>"; };
@@ -406,6 +405,10 @@
 		7BB71CEE18FE6C6C0092ED94 /* YLLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YLLabel.m; sourceTree = "<group>"; };
 		7BB71CF018FF6EE80092ED94 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		7BB71CF118FF6EE80092ED94 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		7BB71CF318FFA4620092ED94 /* MKPointAnnotation+Detail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPointAnnotation+Detail.h"; sourceTree = "<group>"; };
+		7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPointAnnotation+Detail.m"; sourceTree = "<group>"; };
+		7BB71CF618FFAF290092ED94 /* CustomAnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnn.h; sourceTree = "<group>"; };
+		7BB71CF718FFAF290092ED94 /* CustomAnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnn.m; sourceTree = "<group>"; };
 		7BB7534D1884DC730037BC63 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		7BB7534E1884DC730037BC63 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		7BB753511884DDFA0037BC63 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -1098,10 +1101,12 @@
 				7B9AA3FD187F822600D6F72D /* NSString+EncodingUTF8Additions.m */,
 				7BB7535A1887B5290037BC63 /* UIImage+CS_Extention.h */,
 				7BB7535B1887B5290037BC63 /* UIImage+CS_Extention.m */,
-				7B17032F18C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.h */,
-				7B17033018C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m */,
 				7BDD9D7718E50F5100E6E93B /* KMZCell.h */,
 				7BDD9D7818E50F5100E6E93B /* KMZCell.m */,
+				7BB71CF318FFA4620092ED94 /* MKPointAnnotation+Detail.h */,
+				7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */,
+				7BB71CF618FFAF290092ED94 /* CustomAnn.h */,
+				7BB71CF718FFAF290092ED94 /* CustomAnn.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -1372,6 +1377,7 @@
 				7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */,
 				7B9AA3DE1875139900D6F72D /* VssbViewController.m in Sources */,
 				7B9AA3F218753FDD00D6F72D /* XPathQuery.m in Sources */,
+				7BB71CF818FFAF290092ED94 /* CustomAnn.m in Sources */,
 				7B95755C187FC7A1000948CD /* Reachability.m in Sources */,
 				7B957551187FC7A1000948CD /* ASIInputStream.m in Sources */,
 				7BDD9C7518DABBDD00E6E93B /* OverlaySelectionView.m in Sources */,
@@ -1404,11 +1410,11 @@
 				7B9AA43B187FB99000D6F72D /* unzip.c in Sources */,
 				7BBBBD7418613FFB0079D6BD /* NameViewController.m in Sources */,
 				7B95755F187FC7A1000948CD /* ASIS3BucketRequest.m in Sources */,
-				7B17033118C85D2F00890EA3 /* MKPointAnnotation+AdditionalInfo.m in Sources */,
 				7BBBBE391869643D0079D6BD /* FileColViewController.m in Sources */,
 				7B95754E187FC7A1000948CD /* ASIDownloadCache.m in Sources */,
 				7BB71CEF18FE6C6C0092ED94 /* YLLabel.m in Sources */,
 				7BB7535C1887B5290037BC63 /* UIImage+CS_Extention.m in Sources */,
+				7BB71CF518FFA4620092ED94 /* MKPointAnnotation+Detail.m in Sources */,
 				7B506ADF18F7C515008E2B0E /* OfflineViewController.m in Sources */,
 				7B506A3818F6E511008E2B0E /* SearchViewController.m in Sources */,
 				7B75130D188E6A83002337D3 /* AibViewController.m in Sources */,

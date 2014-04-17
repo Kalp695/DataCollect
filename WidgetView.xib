@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WidgetView">
             <connections>
+                <outlet property="descripView" destination="0gs-4E-BfU" id="O50-fH-65j"/>
                 <outlet property="picView" destination="PrQ-E5-qQe" id="HK9-BP-ABv"/>
                 <outlet property="soundLodingImageView" destination="nb8-a6-BtW" id="V9F-Kg-mqd"/>
                 <outlet property="videoView" destination="gah-I3-vuQ" id="hU5-J5-iqL"/>
