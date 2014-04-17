@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *uploadFlag;
 
-
--(void)atmoicLabelSize;
+-(void)atmoicLabel;
 
 @end

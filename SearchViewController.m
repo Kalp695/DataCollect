@@ -15,9 +15,9 @@
 #import <DDXMLElementAdditions.h>
 #import "NSString+EncodingUTF8Additions.h"
 #import "kmViewController.h"
+#import "MBProgressHUD.h"
 
-
-@interface SearchViewController ()<UIPickerViewDataSource,UIPickerViewDelegate>
+@interface SearchViewController ()<UIPickerViewDataSource,UIPickerViewDelegate,MBProgressHUDDelegate>
 @property(nonatomic,strong)NSArray *searchTypeList;
 @property(nonatomic,strong)NSString *searchTypeStr;
 @property(nonatomic,strong)UIToolbar *toolBar;
@@ -225,24 +225,36 @@
         
         NSLog(@"%@",URL);
         NSURLRequest *request=[NSURLRequest requestWithURL:URL];
-        NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
-            NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:self.listPath];
-            return [documentsDirectoryPath URLByAppendingPathComponent:[response suggestedFilename]];
-        } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
-            NSLog(@"File downloaded to: %@", filePath);
-            //可以在这里进行解压工作
-            NSString *kmzPath=[self.listPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.kmz",address]];
-
-            [SSZipArchive unzipFileAtPath:kmzPath toDestination:self.listPath];
-            [fileManager removeItemAtPath:kmzPath error:nil];
-
-            
+        
+        //hud指示图
+        MBProgressHUD *hud=[[MBProgressHUD alloc]initWithView:self.navigationController.view];
+        [self.navigationController.view addSubview:hud];
+        hud.delegate=self;
+        hud.labelText=@"下载中";
+        hud.detailsLabelText=@"downloading data";
+        hud.square=YES;
+        
+        [hud showAnimated:YES whileExecutingBlock:^{
+            NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+                NSURL *documentsDirectoryPath = [NSURL fileURLWithPath:self.listPath];
+                return [documentsDirectoryPath URLByAppendingPathComponent:[response suggestedFilename]];
+            } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+                NSLog(@"File downloaded to: %@", filePath);
+                //可以在这里进行解压工作
+                NSString *kmzPath=[self.listPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.kmz",address]];
+                
+                [SSZipArchive unzipFileAtPath:kmzPath toDestination:self.listPath];
+                [fileManager removeItemAtPath:kmzPath error:nil];
+                
+                
+            }];
+            [downloadTask resume];
+        }completionBlock:^{
+            [hud removeFromSuperview];
         }];
-        [downloadTask resume];
+
         
     }
-    
-    
 }
 
 -(void)showKMLViewer{

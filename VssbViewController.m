@@ -27,6 +27,7 @@
 
 @property(nonatomic,strong)UIImagePickerController *imagePicker;
 
+@property(nonatomic,strong)NSString *altitude;
 @end
 
 @implementation VssbViewController
@@ -106,13 +107,16 @@
     }
 }
 - (IBAction)saveClicked:(id)sender {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self saveDataToPlist];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSegueWithIdentifier:@"ShowVtpFromVsb" sender:self.dirTitle];
-
+    if ([self checkEmpty]) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self saveDataToPlist];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"ShowVtpFromVsb" sender:self.dirTitle];
+                
+            });
         });
-    });
+
+    }
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -179,16 +183,22 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocationCoordinate2D loc=[[locations lastObject]coordinate];
     self.loc=loc;
+    CLLocation *locA=[locations lastObject];
+    self.altitude=[NSString stringWithFormat:@"%f",locA.altitude];
 }
 
 
 - (IBAction)switchAction:(id)sender {
     self.switchBtn=(UISwitch *)sender;
+    UITextField *higtextField=(UITextField *)[self.view viewWithTag:5];
     UITextField *lotextField=(UITextField *)[self.view viewWithTag:6];
     UITextField *latextField=(UITextField *)[self.view viewWithTag:7];
+    UITextField *nameField=(UITextField *)[self.view viewWithTag:1];
     if ([self.switchBtn isOn]) {
         lotextField.text=[NSString stringWithFormat:@"%f",self.loc.longitude];
         latextField.text=[NSString stringWithFormat:@"%f",self.loc.latitude];
+        higtextField.text=self.altitude;
+        nameField.text=[Util getCurrentUserInfo].userName;
     }
     
 }
@@ -230,6 +240,18 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+//非空判断
+-(BOOL)checkEmpty{
+    UITextField *textField=[self.textFieldArray firstObject];
+    if (textField.text.length<1) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"监测单位为必填项目" delegate:self cancelButtonTitle:@"继续" otherButtonTitles: nil];
+        [alert show];
+        return NO;
+    }
+    return YES;
 }
 
 

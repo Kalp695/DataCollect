@@ -434,7 +434,8 @@
     //正常现实
     if (indexPath.row==0) {
         cell.image.image=[UIImage imageNamed:@"add.png"];
-        cell.label.text=[NSString stringWithFormat:@"{%ld}",(long)indexPath.row];
+//        cell.label.text=[NSString stringWithFormat:@"{%ld}",(long)indexPath.row];
+        cell.label.text=@"";
         cell.uploadFlag.hidden=YES;
     }else{
         if (self.gridType==GridTypeForTrack) {
