@@ -12,8 +12,11 @@
 #import "Track.h"
 
 
-@interface TrackMapViewController : UIViewController
+
+@interface TrackMapViewController : UIViewController<UIPopoverControllerDelegate>
 @property(nonatomic,strong)IBOutlet MKMapView *mapView;
+@property(nonatomic,strong)UIPopoverController *popOver;
+
 @property(nonatomic,strong)Track *track;
 @property(nonatomic,strong)NSString *timeStamp;
 @property(nonatomic,strong)NSString *dirPath;

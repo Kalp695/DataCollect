@@ -23,9 +23,12 @@
 #import "WidgetView.h"
 #import <AVFoundation/AVFoundation.h>
 
+#import <MediaPlayer/MediaPlayer.h>
+
 #import "UIImage+CS_Extention.h"
 #import "MKPointAnnotation+Detail.h"
 #import "CustomAnn.h"
+#import "ParameterButton.h"
 
 @interface TrackMapViewController ()
 @property(nonatomic,strong)UIDocumentInteractionController *interactionController;
@@ -40,6 +43,8 @@
 
 @property(nonatomic,strong)NSString *beginTime;
 @property(nonatomic,strong)NSString *endTime;
+
+@property(nonatomic,assign)BOOL ifShow;
 
 
 -(void)startLogging;
@@ -72,6 +77,7 @@
 
 
 @implementation TrackMapViewController
+@synthesize popOver;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,6 +89,7 @@
 }
 
 - (void)viewDidLoad
+
 {
     [super viewDidLoad];
     if (!self.track) {
@@ -90,6 +97,7 @@
         [self addRightBtnToNav];
         self.mapView.showsUserLocation=YES;
     }else{
+        self.ifShow=YES;
         [self showLog];
         self.mapView.showsUserLocation=NO;
         [self createScreenShot];
@@ -203,6 +211,7 @@
 
 - (void)startLogging
 {
+    NSLog(@"start logging!");
     // initialize map position
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(39.977887, 116.329404);
     MKCoordinateSpan span = MKCoordinateSpanMake(0.05f, 0.05f);
@@ -257,6 +266,9 @@
 //            imgPath=[imgPath stringByReplacingOccurrencesOfString:@":" withString:@"-"];
 //            imgPath=[imgPath stringByReplacingOccurrencesOfString:@" " withString:@"-"];
             [ann setImgPath:imgPath];
+            NSString *videoPath=[self.dirPath stringByAppendingPathComponent:trackPoint.videopath];
+            NSLog(@"videoInPoint:%@",videoPath);
+            [ann setVideoPath:videoPath];
 
             [self.mapView addAnnotation:ann];
             
@@ -543,9 +555,10 @@
 }
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     MKPinAnnotationView *pinView=nil;
+
     static NSString *defaultPinID=@"trackPoint";
     pinView=(MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
-    CustomAnn *ann=annotation;
+    CustomAnn *ann=(CustomAnn *)annotation;
     if ((pinView==nil)&& (ann.title!=nil)) {
         pinView=[[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:defaultPinID];
         
@@ -553,20 +566,53 @@
     pinView.pinColor=MKPinAnnotationColorPurple;
     pinView.canShowCallout=YES;
     pinView.animatesDrop=YES;
-//    UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 80, 32)];
-//    label.text=[ann.title stringByAppendingString:@"wow"];
-    
-//    pinView.leftCalloutAccessoryView=label;
-//    pinView.leftCalloutAccessoryView=[[UIImageView alloc]initWithImage:[UIImage imageWithContentsOfFile:ann.imgPath]];
-//    pinView.leftCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
-    imageView.image=[UIImage imageWithContentsOfFile:ann.imgPath];
-    pinView.leftCalloutAccessoryView=imageView;
-    
+    if (self.ifShow) {
+
+        NSLog(@"show!");
+        UIImageView *imageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
+        imageView.image=[UIImage imageWithContentsOfFile:ann.imgPath];
+        pinView.leftCalloutAccessoryView=imageView;
+        ParameterButton *btn=[ParameterButton buttonWithType:UIButtonTypeDetailDisclosure];
+        btn.ann=ann;
+        [btn addTarget:self action:@selector(popDetail:) forControlEvents:UIControlEventTouchUpInside];
+        pinView.rightCalloutAccessoryView=btn;
+
+    }
     
     return pinView;
 }
 
+
+-(void)popDetail:(id)sender{
+    ParameterButton *btn=(ParameterButton *)sender;
+    CGPoint point=[self.mapView convertCoordinate:btn.ann.coordinate toPointToView:self.mapView.superview];
+    NSLog(@"coordinate:%f %f",btn.ann.coordinate.latitude,btn.ann.coordinate.longitude);
+    NSLog(@"%@",[NSString stringWithFormat:@"point:%f,%f",point.x,point.y]);
+    
+    
+//    UIViewController *uv=[[UIViewController alloc]init];
+//    uv.view.backgroundColor=[UIColor redColor];
+//    self.popOver=[[UIPopoverController alloc]initWithContentViewController:uv];
+//    self.popOver.delegate=self;
+//    [self.popOver setPopoverContentSize:CGSizeMake(200, 500) animated:YES];
+//    
+//    [self.popOver presentPopoverFromRect:CGRectMake(point.x, point.y, 200, 500) inView:self.mapView.superview permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    MPMoviePlayerViewController *mpVC=[[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL fileURLWithPath:btn.ann.videoPath]];
+    NSLog(@"video:%@",btn.ann.videoPath);
+    [self presentMoviePlayerViewControllerAnimated:mpVC];
+    [mpVC.moviePlayer play];
+    
+    
+}
+
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    NSLog(@"click ann!");
+}
+-(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control{
+    NSLog(@"click callout!");
+
+}
 
 
 

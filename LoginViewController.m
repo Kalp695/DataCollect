@@ -38,6 +38,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.passWordField.secureTextEntry=YES;
     [self checkReachability];
 
 	// Do any additional setup after loading the view.

@@ -136,6 +136,8 @@
 		7BB71CF218FF6EE80092ED94 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF118FF6EE80092ED94 /* MBProgressHUD.m */; };
 		7BB71CF518FFA4620092ED94 /* MKPointAnnotation+Detail.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */; };
 		7BB71CF818FFAF290092ED94 /* CustomAnn.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CF718FFAF290092ED94 /* CustomAnn.m */; };
+		7BB71CFB18FFC7330092ED94 /* ParameterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71CFA18FFC7330092ED94 /* ParameterButton.m */; };
+		7BB71D3F1900DF9A0092ED94 /* AnnPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB71D3E1900DF9A0092ED94 /* AnnPopViewController.m */; };
 		7BB7534F1884DC740037BC63 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB7534E1884DC730037BC63 /* Util.m */; };
 		7BB753531884DDFA0037BC63 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB753521884DDFA0037BC63 /* LoginViewController.m */; };
 		7BB75357188624650037BC63 /* done0.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB75355188624650037BC63 /* done0.png */; };
@@ -409,6 +411,10 @@
 		7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPointAnnotation+Detail.m"; sourceTree = "<group>"; };
 		7BB71CF618FFAF290092ED94 /* CustomAnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnn.h; sourceTree = "<group>"; };
 		7BB71CF718FFAF290092ED94 /* CustomAnn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnn.m; sourceTree = "<group>"; };
+		7BB71CF918FFC7330092ED94 /* ParameterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParameterButton.h; sourceTree = "<group>"; };
+		7BB71CFA18FFC7330092ED94 /* ParameterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParameterButton.m; sourceTree = "<group>"; };
+		7BB71D3D1900DF9A0092ED94 /* AnnPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnPopViewController.h; sourceTree = "<group>"; };
+		7BB71D3E1900DF9A0092ED94 /* AnnPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnPopViewController.m; sourceTree = "<group>"; };
 		7BB7534D1884DC730037BC63 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		7BB7534E1884DC730037BC63 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		7BB753511884DDFA0037BC63 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -551,6 +557,8 @@
 				7BDD9C1518D91DCD00E6E93B /* SearchView.xib */,
 				7B506A4218F6F12D008E2B0E /* kmViewController.h */,
 				7B506A4318F6F12D008E2B0E /* kmViewController.m */,
+				7BB71D3D1900DF9A0092ED94 /* AnnPopViewController.h */,
+				7BB71D3E1900DF9A0092ED94 /* AnnPopViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -1107,6 +1115,8 @@
 				7BB71CF418FFA4620092ED94 /* MKPointAnnotation+Detail.m */,
 				7BB71CF618FFAF290092ED94 /* CustomAnn.h */,
 				7BB71CF718FFAF290092ED94 /* CustomAnn.m */,
+				7BB71CF918FFC7330092ED94 /* ParameterButton.h */,
+				7BB71CFA18FFC7330092ED94 /* ParameterButton.m */,
 			);
 			name = tool;
 			sourceTree = "<group>";
@@ -1352,6 +1362,7 @@
 				7B957507187FC514000948CD /* Array.mm in Sources */,
 				7B957558187FC7A1000948CD /* ASICloudFilesObject.m in Sources */,
 				7B506AE118F7C515008E2B0E /* OfflineDetailViewController.m in Sources */,
+				7BB71D3F1900DF9A0092ED94 /* AnnPopViewController.m in Sources */,
 				7B5F1FDD185F29BF0070B040 /* ViewController.m in Sources */,
 				7B9AA3FE187F822600D6F72D /* NSString+EncodingUTF8Additions.m in Sources */,
 				7B506A3B18F6E57A008E2B0E /* AppDelegate.m in Sources */,
@@ -1443,6 +1454,7 @@
 				7B957556187FC7A1000948CD /* ASICloudFilesContainerRequest.m in Sources */,
 				7B95755D187FC7A1000948CD /* ASIS3Bucket.m in Sources */,
 				7B957561187FC7A1000948CD /* ASIS3Request.m in Sources */,
+				7BB71CFB18FFC7330092ED94 /* ParameterButton.m in Sources */,
 				7B1B4EE818B1E54F00B13723 /* NSMutableArray+InnerBand.m in Sources */,
 				7BF2A93C18B1E646008F643F /* Model.xcdatamodeld in Sources */,
 			);
